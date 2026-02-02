@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# サイトマップの場所
+Sitemap: https://santai-footcare.com/sitemap.xml
+
+# 検索エンジンにクロールを許可
+Crawl-delay: 1
+
+# 特定のファイルやディレクトリを除外（必要に応じて）
+# Disallow: /admin/
+# Disallow: /private/
+

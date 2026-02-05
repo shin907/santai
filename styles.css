@@ -169,7 +169,7 @@ nav a:hover {
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23fbeaea"/><stop offset="100%" style="stop-color:%23f6d4d4"/></linearGradient></defs><rect width="1200" height="600" fill="url(%23bg)"/><circle cx="200" cy="150" r="100" fill="%23CF4747" opacity="0.3"/><circle cx="800" cy="300" r="150" fill="%23943232" opacity="0.2"/><circle cx="1000" cy="100" r="80" fill="%23471818" opacity="0.4"/></svg>');
     background-size: cover;
     background-position: center;
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     color: white;
 }
@@ -216,7 +216,7 @@ nav a:hover {
 
 /* サービスセクション */
 .services {
-    padding: 100px 0;
+    padding: 50px 0;
     background: linear-gradient(135deg, #fff9f9 0%, #ffffff 50%, #fff6f6 100%);
     position: relative;
     overflow: hidden;
@@ -537,7 +537,7 @@ nav a:hover {
 
 /* アバウトセクション */
 .about {
-    padding: 80px 0;
+    padding: 40px 0;
     background: #fff6f6;
 }
 

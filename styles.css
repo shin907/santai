@@ -2706,28 +2706,142 @@ footer {
     margin-bottom: 0;
 }
 .line-section .section-title { color: #fff; }
-.after-first-intro {
-    text-align: center;
-    color: #555;
-    margin-bottom: 1rem;
+/* 初回施術後に見て欲しいページ - 目立つボタンデザイン */
+.after-first-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 800px;
+    margin: 2rem auto;
 }
-.after-first-links {
-    list-style: none;
-    padding: 0;
-    max-width: 400px;
-    margin: 0 auto 1rem;
+
+.after-first-button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #fff9f9 0%, #ffffff 100%);
+    border: 3px solid #943232;
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(148, 50, 50, 0.15);
+    position: relative;
+    overflow: hidden;
 }
-.after-first-links li {
-    padding: 0.6rem 1rem;
-    margin-bottom: 0.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #943232;
+
+.after-first-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(148, 50, 50, 0.1), transparent);
+    transition: left 0.5s ease;
 }
-.after-first-note {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #888;
+
+.after-first-button:hover::before {
+    left: 100%;
+}
+
+.after-first-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(148, 50, 50, 0.25);
+    border-color: #CF4747;
+    background: linear-gradient(135deg, #fff0f0 0%, #fff9f9 100%);
+}
+
+.button-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    background: linear-gradient(135deg, #943232, #CF4747);
+    color: #fff;
+    font-size: 28px;
+    font-weight: 900;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(148, 50, 50, 0.3);
+    flex-shrink: 0;
+}
+
+.after-first-button:hover .button-number {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(148, 50, 50, 0.4);
+}
+
+.button-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.button-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #471818;
+    line-height: 1.3;
+}
+
+.button-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.after-first-button:hover .button-title {
+    color: #943232;
+}
+
+.button-arrow {
+    font-size: 24px;
+    color: #943232;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.after-first-button:hover .button-arrow {
+    transform: translateX(6px);
+    color: #CF4747;
+}
+
+@media (max-width: 768px) {
+    .after-first-buttons {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .after-first-button {
+        padding: 20px;
+        gap: 12px;
+    }
+    
+    .button-number {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        font-size: 24px;
+    }
+    
+    .button-title {
+        font-size: 18px;
+    }
+    
+    .button-desc {
+        font-size: 13px;
+    }
+    
+    .button-arrow {
+        font-size: 20px;
+    }
 }
 
 /* 反射区図のクリック拡大機能 */

@@ -238,19 +238,6 @@
         </div>
     </section>
 
-    <!-- 学びのルーツ・地球儀（MapLibre GL JS Globe Projection） -->
-    <section class="globe-section" id="globe">
-        <div class="container">
-            <h2 class="section-title">学びのルーツを地球儀で見る</h2>
-            <p class="globe-lead">私が海外で学んだメソッドのルーツを、地球儀上でご紹介します。ドラッグで回転できます。</p>
-            <div class="globe-card">
-                <div id="globe-container" class="globe-container" aria-label="3D地球儀（海外の学びの場所）"></div>
-                <p class="globe-legend">高松（サロン）→ パース → バリ → バンコク → 台湾（足つぼ）→ スリランカ（アーユルヴェーダ）</p>
-            </div>
-            <p class="globe-cta"><a href="santai-room.html">Santaiの部屋</a>で年表や各地での学びを詳しくご覧いただけます。</p>
-        </div>
-    </section>
-
     <!-- AI-SEO対策: FAQセクション -->
     <section class="faq-section" id="faq">
         <div class="container">
@@ -401,8 +388,6 @@
             </div>
         </div>
     </footer>
-    <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.3.0/dist/maplibre-gl.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.3.0/dist/maplibre-gl.js"></script>
 <script>
   (function(){
     var btn = document.querySelector('.nav-toggle');
@@ -421,43 +406,6 @@
         if(e.target.tagName === 'A') menu.classList.remove('show');
       });
     }
-  })();
-  (function initGlobe(){
-    var container = document.getElementById('globe-container');
-    if(!container || typeof maplibregl === 'undefined') return;
-    var routeCoords = [[134.0436, 34.3428], [115.8605, -31.9505], [115.1889, -8.4095], [100.5018, 13.7563], [121.5654, 25.033], [80.2, 6.0]];
-    var routeGeoJSON = { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: routeCoords } };
-    var pointsGeoJSON = {
-      type: 'FeatureCollection',
-      features: [
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [134.0436, 34.3428] }, properties: { name: 'Takamatsu', nameJa: '高松（サロン）', color: '#5e35b1' } },
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [115.8605, -31.9505] }, properties: { name: 'Perth', nameJa: 'パース', color: '#c62828' } },
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [115.1889, -8.4095] }, properties: { name: 'Bali', nameJa: 'バリ', color: '#e65100' } },
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [100.5018, 13.7563] }, properties: { name: 'Bangkok', nameJa: 'バンコク', color: '#2e7d32' } },
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [121.5654, 25.033] }, properties: { name: 'Taiwan', nameJa: '台湾', color: '#1565c0' } },
-        { type: 'Feature', geometry: { type: 'Point', coordinates: [80.2, 6.0] }, properties: { name: 'Sri Lanka', nameJa: 'スリランカ', color: '#7b1fa2' } }
-      ]
-    };
-    var style = {
-      version: 8,
-      glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
-      sprite: 'https://demotiles.maplibre.org/sprite/sprite',
-      sources: {
-        'route': { type: 'geojson', data: routeGeoJSON },
-        'points': { type: 'geojson', data: pointsGeoJSON }
-      },
-      layers: [
-        { id: 'background', type: 'background', paint: { 'background-color': '#030314' } },
-        { id: 'route', type: 'line', source: 'route', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-color': '#7b1fa2', 'line-width': 2, 'line-opacity': 0.9 } },
-        { id: 'points-circle', type: 'circle', source: 'points', paint: { 'circle-radius': ['match', ['get', 'name'], 'Takamatsu', 8, 6], 'circle-color': ['get', 'color'], 'circle-stroke-width': 1.5, 'circle-stroke-color': '#fff' } },
-        { id: 'points-label', type: 'symbol', source: 'points', layout: { 'text-field': ['get', 'name'], 'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'], 'text-size': 12, 'text-anchor': 'top', 'text-offset': [0, 0.8] }, paint: { 'text-color': '#fff', 'text-halo-color': '#1a1a1a', 'text-halo-width': 1.5 } }
-      ]
-    };
-    var map = new maplibregl.Map({ container: 'globe-container', style: style, center: [132, 8], zoom: 1.8, pitch: 0, bearing: 0, attributionControl: false, renderWorldCopies: false });
-    map.on('load', function(){ map.setProjection({ type: 'globe' }); });
-    function sizeGlobe(){ map.resize(); }
-    sizeGlobe();
-    window.addEventListener('resize', sizeGlobe);
   })();
 </script>
 </body>
